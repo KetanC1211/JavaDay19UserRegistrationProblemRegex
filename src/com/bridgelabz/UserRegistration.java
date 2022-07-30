@@ -49,7 +49,7 @@ public class UserRegistration {
 	}
 
 	static void checkMobileFormat() {
-		String nameCondition = "[91]+\s+[0-9]{10}";
+		String nameCondition = "(91\s)[0-9]{10}";
 		Pattern pattern = Pattern.compile(nameCondition);
 		
 		Scanner sc = new Scanner(System.in);
@@ -62,11 +62,10 @@ public class UserRegistration {
 		else {
 			System.out.println("Invalid Input");
 		}
-		sc.close();
 	}
 
 	static void checkPassword() {
-		String nameCondition = "[a-zA-Z0-9]{8,}";
+		String nameCondition = "^(?=.*[A-Z])[a-zA-Z0-9]{8,}$";//atleast one uppercase
 		Pattern pattern = Pattern.compile(nameCondition);
 		
 		Scanner sc = new Scanner(System.in);
@@ -81,11 +80,12 @@ public class UserRegistration {
 		}
 		sc.close();
 	}
+
 	
 	public static void main(String[] args) {
 		checkFirstAndLastName();
 		checkEmail();
-		// checkMobileFormat();
+		checkMobileFormat();
 		checkPassword();
 	}
 }
