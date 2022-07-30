@@ -65,9 +65,27 @@ public class UserRegistration {
 		sc.close();
 	}
 
+	static void checkPassword() {
+		String nameCondition = "[a-zA-Z0-9]{8,}";
+		Pattern pattern = Pattern.compile(nameCondition);
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the password");
+		String checkPassword = sc.nextLine();//Scanning first name
+		Matcher fmatcher = pattern.matcher(checkPassword);
+		if(fmatcher.matches()) {
+			System.out.println("Valid Input");
+		}
+		else {
+			System.out.println("Invalid Input");
+		}
+		sc.close();
+	}
+	
 	public static void main(String[] args) {
 		checkFirstAndLastName();
 		checkEmail();
-		checkMobileFormat();
+		// checkMobileFormat();
+		checkPassword();
 	}
 }
