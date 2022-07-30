@@ -46,11 +46,28 @@ public class UserRegistration {
 		else {
 			System.out.println("Invalid Input");
 		}
+	}
+
+	static void checkMobileFormat() {
+		String nameCondition = "[91]+\s+[0-9]{10}";
+		Pattern pattern = Pattern.compile(nameCondition);
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the mobile number");
+		String emailId = sc.nextLine();//Scanning first name
+		Matcher fmatcher = pattern.matcher(emailId);
+		if(fmatcher.matches()) {
+			System.out.println("Valid Input");
+		}
+		else {
+			System.out.println("Invalid Input");
+		}
 		sc.close();
 	}
 
 	public static void main(String[] args) {
 		checkFirstAndLastName();
 		checkEmail();
+		checkMobileFormat();
 	}
 }
