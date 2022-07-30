@@ -4,7 +4,8 @@ import java.util.regex.*;
 import java.util.Scanner;
 
 public class UserRegistration {
-	
+
+
 	static void checkFirstAndLastName() {
 		String nameCondition = "[A-Z]{1}[a-z]{2,}";
 		Pattern pattern = Pattern.compile(nameCondition);
@@ -29,11 +30,27 @@ public class UserRegistration {
 		else {
 			System.out.println("Invalid Input");
 		}
-		
-		sc.close();
 	}
 	
+	static void checkEmail() {
+		String emailCondition = "[abc]{3}.[a-z]{3}@bl.co.[a-z]{2}";
+		Pattern pattern = Pattern.compile(emailCondition);
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the email ID");
+		String emailId = sc.nextLine();
+		Matcher email = pattern.matcher(emailId);
+		if(email.matches()) {
+			System.out.println("Valid Input");
+		}
+		else {
+			System.out.println("Invalid Input");
+		}
+		sc.close();
+	}
+
 	public static void main(String[] args) {
 		checkFirstAndLastName();
+		checkEmail();
 	}
 }
